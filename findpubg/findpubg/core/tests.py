@@ -1,11 +1,15 @@
+import django
 from django.test import TestCase
 from django.utils import timezone
-
+from . import models
 from . import forms
 from . import views
 from .forms import SearchForm
 from .models import Search
-
+from .models import User
+from .views import home
+from django.contrib.auth import views as auth_views
+from django.views.generic import RedirectView
 
 # Create your tests here.
 
@@ -26,6 +30,7 @@ class FiltrationTest(TestCase):
         userE = Search.objects.create(user_id='userE',steam_id='UE',team_choices='SQUADS',region_choices='SA',email='userE@gmail.com', rank=100000)
 
         userF= Search.objects.create(user_id='userF',steam_id='UF',team_choices='DUOS FPS',region_choices='SEA',email='userF@gmail.com', rank = 2)
+
 
     def test_sort_team_choices(self):
 
@@ -74,6 +79,13 @@ class FiltrationTest(TestCase):
 
 	s = forms.FilterUser({'steam_id': 'a steam id that doesnt exist'})
 	self.assertFalse(s.qs.exists())
+
+
+class ProfileTest(TestCase):
+    def test_creation(self):
+	testuserr = User.objects.create(username="testerogo", email="test@test.com", password="secretpassword1")
+	self.assertTrue(isinstance(testuserr, django.contrib.auth.models.User))
+	
 
 
 class RegistrationFormTests(TestCase):
@@ -125,6 +137,15 @@ class RegistrationFormTests(TestCase):
 	    'error':
 	    ('password1', [u"The password is entirely numeric."])
 	    },
+	    {
+            'data':
+            { 'username': 'foo/bar',
+              'birth_date': '1996-09-11',
+              'password1': '',
+              'password2': '' },
+            'error':
+            ('password1', [u'Must be longer than x number of character.'])
+            },
 
         ]
         for invalid_dict in invalid_data_dicts:
@@ -137,6 +158,16 @@ class RegistrationFormTests(TestCase):
                                        'password1': 'foo123456',
                                        'password2': 'foo123456' })
         self.failUnless(form.is_valid())
+
+
+#class TestCalls(TestCase):
+ #   def test_login(self):
+#	response = self.client.get('thawing-meadow-67095.herokuapp.com/login/', follow=True)
+#	self.assertRedirects(response, '/login/')
+	#response = self.client.post(RedirectView.as_view(url='http://127.0.0.1:8000/signup/'), follow=True)
+	#self.assertRedirects(response, '/signup/')
+
+
 
 class SearchFormTest(TestCase):
     def test_SearchForm_valid(self):
@@ -153,4 +184,8 @@ class SearchFormTest(TestCase):
     def test_SearchForm_rank_invalid(self):
         form1 = SearchForm(data={'user_id': "sampleuser", 'steam_id': "sampleid", 'team_choices': "DUOS", 'region_choices': "SEA",'email': "test@test.com", 'rank': 'max_int'})
 	self.assertFalse(form1.is_valid())
-	
+
+    def test_SearchForm_empty(self):
+	form1 = SearchForm(data={'user_id':'', 'steam_id':'', 'team_choices':'', 'region_choices':'', 'email':'', 'rank':''})
+	self.assertFalse(form1.is_valid())	
+
