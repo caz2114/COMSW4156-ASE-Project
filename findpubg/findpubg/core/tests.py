@@ -137,7 +137,7 @@ class RegistrationFormTests(TestCase):
                                        'password1': 'foo123456',
                                        'password2': 'foo123456' })
         self.failUnless(form.is_valid())
-
+gi
 class SearchFormTest(TestCase):
     def test_SearchForm_valid(self):
         form1 = SearchForm(data={'user_id': "sampleuser", 'steam_id': "sampleid", 'team_choices': "DUOS", 'region_choices': "NA", 'email': "test@test.com", 'rank': '1'})

@@ -20,4 +20,4 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'findpubg.settings'
 application = get_wsgi_application()
 application = DjangoWhiteNoise(application)
 
-#wsgi_application = get_wsgi_application()
+wsgi_application = get_wsgi_application()
