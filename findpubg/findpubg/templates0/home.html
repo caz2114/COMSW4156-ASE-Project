@@ -3,7 +3,7 @@
 {% block content %}
 {% load static %}
 <body background="{% static 'image/backpack.jpg' %}">
-	<div class="col-lg-7 mx-auto bk padded">
+	<div class="col-xl-4 mx-auto bk padded">
 			{% if user.username != "" %}
                 <h2>Welcome, {{ user.username }}!</h2>
                 {% if info %}
@@ -13,7 +13,7 @@
 		    		<p> Rank: {{ info.rank }}</p>
 					<a href=../search><button type="button" class="btn btn-outline-secondary">Update your profile!</button></a>
 				{% else %}
-					<a href=../search><button type="button" class="btn btn-outline-secondary">Create your stream profile!</button></a>
+					<a href=../search><button type="button" class="btn btn-outline-secondary">Create your profile!</button></a>
                 {% endif %}
 			{% else %}
 		  	   <h2> Welcome! Please sign in or make a new account</h2>
