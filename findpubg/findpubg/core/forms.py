@@ -13,6 +13,13 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'birth_date', 'password1', 'password2')
+        help_texts = {
+            'username': 'Required. 150 characters or fewer. Letters, digits and @ . + - _ only',
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(SignUpForm, self).__init__(*args, **kwargs)
+        self.fields['password1'].help_text = 'Your password must contain at least 9 characters. Your password can\'t be entirely numeric.'
 
 class SearchForm(forms.ModelForm):
     class Meta:
