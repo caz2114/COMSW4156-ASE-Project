@@ -3,7 +3,7 @@
 {% block content %}
 {% load static %}
 <body background="{% static 'image/backpack.jpg' %}">
-  <div class="col-lg-5 mx-auto bk padded">
+  <div class="col-xl-4 mx-auto bk padded">
       <h2>Log in to FindPUBG</h2>
       {% if form.errors %}
         <p style="color: red">Your username and password didn't match. Please try again.</p>
@@ -23,7 +23,7 @@
             {% endif %}
           </p>
         {% endfor %}
-        <button type="submit" class="btn btn-outline-secondary">Log in</button>
+        <button type="submit" class="btn btn-outline-secondary">Log in</button><br>
         <a href="{% url 'signup' %}">New to FindPUBG? Sign up</a>
       </form>
   </div>
