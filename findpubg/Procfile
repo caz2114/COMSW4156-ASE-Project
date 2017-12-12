@@ -1,2 +1,2 @@
-web: gunicorn findpubg.wsgi:wsgi_application --log-file -
+web: gunicorn findpubg.wsgi --log-file -
 
