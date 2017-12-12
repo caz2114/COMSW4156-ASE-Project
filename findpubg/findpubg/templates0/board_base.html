@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
 
     <style>
-        p{
+        p,.checkbox,.control-label,.warning-message{
             font-family:Cabin,'Helvetica Neue',Helvetica,Arial,sans-serif;
             font-size:14px;
             line-height:1.5;
@@ -29,6 +29,22 @@
             -webkit-transition:all .2s ease-in-out;
             -moz-transition:all .2s ease-in-out;
             transition:all .2s ease-in-out;
+            color:#F0AD14
+        }
+
+        .row{
+            /*border: 1px solid magenta;*/
+        }
+
+        .edit-info,.text-muted{
+            font-family:Cabin,'Helvetica Neue',Helvetica,Arial,sans-serif;
+            font-size:14px;
+            /*color:#F0AD14*/
+        }
+
+
+        .btn{
+            font-size:14px;
             color:#F0AD14
         }
 
@@ -47,9 +63,80 @@
           padding: 20px 20px 20px 20px;
         }
 
-        .panel-default {
-            background-color: #000;
+        .panel-title{
+            margin-top:0;
+            font-size:20px;
+            text-align: left;
         }
+
+        .panel-default {
+            /*border: 1px solid magenta;*/
+            background: rgba(0, 0, 0, 0.6);
+            padding: 0px 30px 0px 30px;
+        }
+
+        .panel-heading{
+            margin: 0 0 0 0;
+            font-size:20px;
+            border-bottom:1px solid #eee;
+            pointer-events: none;
+       }
+
+       .page-header{
+           margin:10px 0 10px;
+           font-size:12px;
+           border-bottom:1px solid #eee
+       }
+
+       .statistics{
+           font-size:12px;
+           padding-bottom:0px;
+           padding-top:0px;
+       }
+
+       .forum-page-statistics{
+          background: rgba(0, 0, 0, 0.6);
+          margin: 1cm 0cm 1cm 0cm;
+       }
+
+       .forum-data-table{
+            /*border: 1px solid magenta;*/
+            height: 10px;
+            vertical-align: bottom;
+        }
+
+        td{
+            vertical-align: bottom;
+            text-align: left;
+            /*border: 1px solid red;*/
+        }
+
+        .btn-default, .btn-info,.btn-link,.btn-primary{
+            background-color: rgba(0, 0, 0, 0.6);
+            border: 1px solid white;
+            font-size:14px;
+            color:#F0AD14;
+            padding: 5px;
+            margin: 30px;
+        }
+
+        .btn-subscription:hover,.btn-default:hover,.btn-info:hover,.btn-warning:hover,.btn-link:hover,.btn-primary:hover{
+            color:#eee;
+            font-family:Cabin,'Helvetica Neue',Helvetica,Arial,sans-serif;
+            border:1px solid white;
+            outline:0;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .btn-warning{
+            color:#eee;
+        }
+
+        .post-content-wrapper{
+            background-color: rgba(0, 0, 0, 0.6);
+            padding-top: 10px
+        }
+
     </style>
 {% endblock css %}
 
@@ -84,7 +171,7 @@
                     <a class="nav-link js-scroll-trigger" href="{% url 'user_board' %}">User Board</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="{% url 'forum' %}">Discussion Board</a>
+                    <a class="nav-link js-scroll-trigger" href="{% url 'home' %}">Login/Signup</a>
                   </li>
               {% endif %}
           </ul>

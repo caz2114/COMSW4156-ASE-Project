@@ -6,7 +6,7 @@
   <form method="get">
     {{ filter.form.as_p }}
     <button type="submit" class="btn btn-outline-secondary" >Search</button>
-    <button class="btn btn-outline-secondary"><a style="color:lightgray;font-size:10px" href="{% url 'user_board' %}">Reset</a></button>
+    <button class="btn btn-outline-secondary"><a href="{% url 'user_board' %}">Reset</a></button>
   </form>
 
   {% if filter.qs %}
