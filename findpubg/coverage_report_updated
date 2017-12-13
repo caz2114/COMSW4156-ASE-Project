@@ -1,0 +1,13 @@
+Name                                                  Stmts   Miss  Cover
+-------------------------------------------------------------------------
+findpubg/core/forms.py                                   21      0   100%
+findpubg/core/migrations/0001_initial.py                  8      0   100%
+findpubg/core/migrations/0002_search.py                   6      0   100%
+findpubg/core/migrations/0003_auto_20171205_0853.py       5      0   100%
+findpubg/core/migrations/0004_auto_20171210_0250.py       5      0   100%
+findpubg/core/migrations/__init__.py                      0      0   100%
+findpubg/core/views.py                                   53     38    28%
+-------------------------------------------------------------------------
+TOTAL                                                    98     38    61%
+----------------------------------------------------------------------
+Ran 10 tests in 0.202s
